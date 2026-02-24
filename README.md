@@ -6,12 +6,11 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Windows%20|%20Linux-blue?style=flat-square&logo=python" alt="Platform">
   <img src="https://img.shields.io/badge/License-Non--Commercial-red?style=flat-square" alt="License">
-  <img src="https://img.shields.io/github/v/release/zubayraly/SmartHostingManager?style=flat-square" alt="Release">
 </p>
 
 ## About Smart Hosting Manager
 
-**Smart Hosting Manager** is a modern, open-source application designed for managing servers. It acts as a control panel for local and remote servers, seamlessly handling domains, SSL certificates, PM2 processes, Docker integration, and automated deployments securely via SFTP and SSH. 
+**Smart Hosting Manager** is a modern, open-source application designed for managing servers. It acts as a control panel for local and remote servers, seamlessly handling domains, SSL certificates, PM2 processes, and automated deployments securely via SFTP and SSH. 
 
 ## ✨ Features
 
@@ -55,11 +54,17 @@ For detailed instructions on how to use each feature and tab in Smart Hosting Ma
 
 | Dashboard | Control Panel | Developer |
 |-----------|---------------|-----------|
-| ![Dashboard](screenshots/dashboard.png) | ![Control Panel](screenshots/control_panel.png) | ![Developer](screenshots/developer.png) |
+|<img width="1151" height="833" alt="dashboard" src="https://github.com/user-attachments/assets/d58f1bdc-7c03-4a32-a8cd-c6853babf8fe" />
+|<img width="1151" height="833" alt="control panel" src="https://github.com/user-attachments/assets/dedf31d9-b85a-4feb-8375-3141b3a2f7d9" />
+|<img width="1151" height="833" alt="developer" src="https://github.com/user-attachments/assets/027ec3ca-2d6f-4931-a5d3-07946d507bb9" />
+|
 
 | Domain & SSL | Backup & Restore | Installer |
 |--------------|------------------|-----------|
-| ![Domain & SSL](screenshots/domain_ssl.png) | ![Backup & Restore](screenshots/backup_restore.png) | ![Installer](screenshots/installer.png) |
+|<img width="1151" height="833" alt="domain" src="https://github.com/user-attachments/assets/550d1450-ee2e-407f-90eb-14287e9b8bfd" />
+|<img width="1151" height="833" alt="backup" src="https://github.com/user-attachments/assets/3d977def-8d59-4eb6-9f9d-c7d097792959" />
+|<img width="1151" height="833" alt="installer" src="https://github.com/user-attachments/assets/0344f752-f0cc-4759-b9c7-7eb40167032a" />
+|
 
 ## 🐛 Bug Reports & Feature Requests
 
@@ -81,7 +86,9 @@ When reporting bugs, please include:
 
 If you enjoy using Smart Hosting Manager and would like to support its continued development, you can buy me a coffee! 
 
-- **PayPal:** [Donate via PayPal](#)
+- **PayPal:** [Donate via PayPal](https://www.paypal.com/paypalme/zubayrop)
+- **NayaPay:** `zubayr@nayapay`
+- **USDT (Binance BEP20):** `0xeb0aa1a7b9704ef876c8c9f2cd65b8e989c25249`
 
 <br>
 
@@ -94,5 +101,5 @@ This project is strictly **free to use for personal or non-commercial purposes o
 Any unauthorized commercialization or sale of this software will result in an immediate **lawsuit and legal action** against the offending party. Please see the `LICENSE` file for full terms.
 
 <div align="center">
-  <sub>Built with ❤️ by Zubayr Aly</sub>
+  <sub>Built with 🕊️🥀 by Zubayr Aly</sub>
 </div>
