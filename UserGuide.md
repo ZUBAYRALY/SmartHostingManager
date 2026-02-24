@@ -1,87 +1,131 @@
-# Smart Hosting Manager - User Guide
+# Smart Hosting Manager - Complete User Guide
 
-Welcome to the **Smart Hosting Manager** User Guide! This document provides detailed instructions on how to navigate and utilize the features across all tabs of the application.
-
-## Table of Contents
-
-1. [Dashboard](#1-dashboard)
-2. [Control Panel](#2-control-panel)
-3. [Developer](#3-developer)
-4. [Domain & SSL](#4-domain--ssl)
-5. [Backup & Restore](#5-backup--restore)
-6. [Installer](#6-installer)
+Welcome to the **Smart Hosting Manager** User Guide! This document provides detailed, step-by-step instructions on how to set up, navigate, and utilize every feature across all tabs of the application.
 
 ---
 
-## 1. Dashboard
-The Dashboard is the central hub for monitoring your server's health and system status. 
+## 1. Initial Setup & Profiles
 
-**📸 Screenshot Required:** `screenshots/dashboard.png` *(Show the active connection, system uptime, and status labels)*
+Before you start managing your servers, you need to set up a profile for your project.
 
-**Key Features:**
-- **Real-time Status:** Live status indicators for PM2 (Backend), Caddy (Frontend), and Prisma Studio.
-- **Domain Overview:** Displays the currently active domain configurations and SSL validities.
-- **Backup Timestamps:** Instantly see when your last system backup was successfully created.
+### Creating a New Profile
+1. Launch the **Smart Hosting Manager** application.
+2. In the top bar, click the **+ New** button next to the Profile dropdown.
+3. Fill in the required details:
+   - **Project:** Enter a unique name for your project (e.g., `MyStore`).
+   - **Port:** Enter the local port your backend runs on (e.g., `4000`).
+   - **Path:** Click the **📂 (Folder icon)** to select the root folder of your project on your local machine.
+4. Click the **Save** button to store your profile. 
+5. To load an existing project later, simply select it from the dropdown and click **Load**.
+
+### Connecting to a Remote Server (Optional)
+If you want to manage a remote Linux VPS (Virtual Private Server) instead of your local machine:
+1. Navigate to the **Remote Server** section right below the profile bar.
+2. Enter your server's **IP Address**, **Username** (e.g., `root`), and **Password**.
+3. Click **Connect**.
+4. Once connected, the status label will change to green (Connected), and all actions performed in the tool will now execute securely on your remote server via SSH/SFTP.
 
 ---
 
-## 2. Control Panel
+## 2. Dashboard
+
+The Dashboard is the central hub for monitoring your server's health and system status.
+
+**How to Use:**
+- **Site Status:** Indicates whether your backend server (PM2) is currently `Running` or `Stopped`.
+- **PM2 Uptime:** Shows how long your application has been running without interruption.
+- **Caddy Status:** Displays the status of your reverse proxy/web server.
+- **Prisma Studio:** Shows whether your database studio is active.
+- **SSL Status:** Indicates if Let's Encrypt SSL is active for your domain.
+- **Last Backup:** Displays the timestamp of the last successful backup generated.
+
+*No direct actions are taken here; it is purely for real-time monitoring. The dashboard refreshes automatically.*
+
+---
+
+## 3. Control Panel
+
 The Control Panel provides actionable controls to manage your server environment actively.
 
-**📸 Screenshot Required:** `screenshots/control_panel.png` *(Show the quick action buttons and service toggles)*
-
-**Key Features:**
-- **Manage Services:** Quick actions to Start, Stop, or Restart PM2 instances and backend services.
-- **Auto-Reboot:** Enable or disable auto-reboot policies to ensure applications start automatically on server boot.
-- **Caddy Integration:** Global toggles to jump-start or halt your Caddy web server directly from the GUI.
+**Step-by-Step Usage:**
+- **Manage Backend (PM2):** Use the **Start**, **Restart**, and **Stop** buttons to control your backend Node.js/Python background processes.
+- **Auto-Reboot Policy:** Click **Enable Auto Reboot** to ensure PM2 automatically restarts your backend applications if the physical server reboots.
+- **Delete Process:** Use the **Delete PM2** button to remove the app from the background process list entirely.
+- **Caddy Web Server:** Click **Start Global Caddy** to initialize your web server routing, or stop it to pause all incoming web traffic.
+- **Prisma Studio:** Toggle your database visualizer on and off using the provided switches.
 
 ---
 
-## 3. Developer
+## 4. Developer Tab
+
 The Developer tab offers advanced tools designed for in-depth debugging and seamless code deployment.
 
-**📸 Screenshot Required:** `screenshots/developer.png` *(Show the terminal input, log tailing, or code update interface)*
-
-**Key Features:**
-- **Log Tailing:** Stream backend logs directly from the remote server seamlessly into the GUI.
-- **SSH Console:** Run direct SSH commands without needing an external terminal emulator.
-- **Project Upgrades:** Effortlessly deploy project updates by uploading ZIP archives directly to the remote server.
+**Using Developer Tools:**
+- **Code Updates (Over-The-Air Deployments):** 
+  1. Click **Update Source Code**.
+  2. Select a `.zip` file of your new code from your local computer.
+  3. The tool will automatically upload the ZIP via SFTP, back up the old codebase (skipping heavy files like `node_modules`), clear the old files, and extract the new ones gracefully.
+- **Log Tailing:** Click **Tail Backend Logs** to stream live output (console logs & errors) from your application directly into the unified log window at the bottom of the tool.
+- **SSH Console:** You can type custom CLI commands into the command input box and hit enter to execute them directly on your server without opening Putty or Terminal.
 
 ---
 
-## 4. Domain & SSL
+## 5. Domain & SSL
+
 Effortlessly handle networking and routing configurations from the Domain & SSL tab.
 
-**📸 Screenshot Required:** `screenshots/domain_ssl.png` *(Show the domain input fields and SSL port mappings)*
-
-**Key Features:**
-- **Domain Assignment:** Assign new custom domains (or localhost) to your projects effortlessly.
-- **Caddy Configuration:** Dynamically generated and applied Caddyfile routing rules for API and static files.
-- **Automated SSL:** Automatically provisions Let's Encrypt SSL certificates when valid domains are assigned.
+**Setting Up a Live Domain:**
+1. Ensure your domain's DNS `A Record` points to your Server's IP address.
+2. Open the **Domain & SSL** tab.
+3. Enter your **Domain Name** (e.g., `example.com`).
+4. Enter your **Email Address** (Required by Let's Encrypt to generate a free SSL certificate).
+5. (Optional) Check **"Is API Proxy Only?"** if you only want to route backend API traffic and do not want to host a frontend UI.
+6. Click **Apply Domain & SSL Settings**.
+7. The manager will automatically generate a Caddyfile, route your ports, and provision a secure HTTPS connection.
 
 ---
 
-## 5. Backup & Restore
+## 6. Backup & Restore
+
 Ensure data integrity with the quick tools provided in the Backup & Restore tab.
 
-**📸 Screenshot Required:** `screenshots/backup_restore.png` *(Show the manual backup creator and recent backup list)*
+**How to Backup:**
+1. Click the **Create Full Backup** button.
+2. The tool will instantly create a highly compressed `.zip` archive of your entire project directory.
+3. It intelligently ignores unnecessary heavy folders like `node_modules`, `build/`, `.git/`, ensuring the backup is lightweight and fast.
+4. *If connected remotely:* Click **Download Backup to PC** to fetch the generated backup from the remote server directly to your local workstation via SFTP.
 
-**Key Features:**
-- **Optimized Backups:** Perform one-click complete backups that intelligently ignore heavy `node_modules` or `.git` folders.
-- **ZIP Compression:** Uses high-speed deflate algorithms to preserve space.
-- **SFTP Fetching:** Allows effortless downloading of remote backups directly to your local workstation.
+---
+
+## 7. Installer
+
+The Installer tab automates setting up new pristine environments, making it perfect for brand-new VPS deployments.
+
+**Installing Dependencies:**
+- Simply click any of the available installation buttons to bootstrap your server:
+  - **Quick Server Setup:** Installs essential Linux tools, Updates APT packages, and secures the server.
+  - **Install Caddy:** Installs the Caddy web server globally.
+  - **Install Docker/NodeJS:** Sets up necessary development runtimes.
+  - **Install Umami:** Sets up a privacy-focused analytics dashboard.
 
 ---
 
-## 6. Installer
-The Installer tab automates setting up new projects, environments, and dependencies.
+## 8. Frequently Asked Questions (FAQ)
 
-**📸 Screenshot Required:** `screenshots/installer.png` *(Show the installation wizard toggles or module lists)*
+### Q1: Why does my SFTP upload fail halfway?
+**A:** This usually happens due to network instability or incorrect folder permissions on the remote server. Ensure the user account you logged in with has `write` access to the target directory.
 
-**Key Features:**
-- **Dependency Automation:** Automates the bootstrapping of essential environment packages and system dependencies.
-- **Third-Party Services:** Easy installation scripts for auxiliary tools like Docker, Caddy, or Umami Analytics.
-- **Guided Setup:** Smooth workflow to transition from a bare-bones OS to a production-ready application environment.
+### Q2: My SSL Certificate says "Inactive" after applying the domain. What should I do?
+**A:** Let's Encrypt requires your domain's DNS to propagate fully before issuing a certificate. Ensure your domain's `<A-Record>` points to your VPS IP address. Wait 5-10 minutes, restart Caddy from the Control Panel, and check the status again.
 
----
-> **Note to Contributors:** When adding screenshots, save them directly to the `screenshots/` directory inside the repository, and ensure they match the exact filenames (`dashboard.png`, `control_panel.png`, etc.) referenced above.
+### Q3: How do I view error logs if my app crashes?
+**A:** Go to the **Developer** tab and click **Tail Backend Logs**. If you are looking for specific PM2 crash errors, you can also type `pm2 logs` in the Developer SSH console input to read historical errors.
+
+### Q4: Can I manage multiple projects at the same time?
+**A:** Yes! Simply create a new profile for each project in the top profile bar. You can instantly switch between projects by selecting a different profile from the dropdown and clicking **Load**.
+
+### Q5: Is it safe to leave "Auto Reboot" enabled?
+**A:** Yes. Enabling Auto Reboot ensures that if your Windows server or Linux VPS restarts unexpectedly (due to updates or power loss), your PM2 applications will start running automatically upon boot.
+
+### Q6: Can I run this tool strictly on my local Windows machine without a remote server?
+**A:** Absolutely. By default, if you do not connect to a remote server, all commands, backups, and deployments execute locally right on your computer.
