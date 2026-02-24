@@ -52,17 +52,23 @@ For detailed instructions on how to use each feature and tab in Smart Hosting Ma
 
 *(Replace these placeholders with your actual screenshots inside the `screenshots/` directory)*
 
-| Dashboard | Control Panel | Developer |
-|-----------|---------------|-----------|
-|<img width="1151" height="833" alt="dashboard" src="https://github.com/user-attachments/assets/d58f1bdc-7c03-4a32-a8cd-c6853babf8fe" />
-|<img width="1151" height="833" alt="control panel" src="https://github.com/user-attachments/assets/dedf31d9-b85a-4feb-8375-3141b3a2f7d9" />
-|<img width="1151" height="833" alt="developer" src="https://github.com/user-attachments/assets/027ec3ca-2d6f-4931-a5d3-07946d507bb9" />
+### Dashboard
+<img src="screenshots/dashboard.png" width="100%" alt="Dashboard Screenshot">
 
-| Domain & SSL | Backup & Restore | Installer |
-|--------------|------------------|-----------|
-|<img width="1151" height="833" alt="domain" src="https://github.com/user-attachments/assets/550d1450-ee2e-407f-90eb-14287e9b8bfd" />
-|<img width="1151" height="833" alt="backup" src="https://github.com/user-attachments/assets/3d977def-8d59-4eb6-9f9d-c7d097792959" />
-|<img width="1151" height="833" alt="installer" src="https://github.com/user-attachments/assets/0344f752-f0cc-4759-b9c7-7eb40167032a" />
+### Control Panel
+<img src="screenshots/control_panel.png" width="100%" alt="Control Panel Screenshot">
+
+### Developer
+<img src="screenshots/developer.png" width="100%" alt="Developer Screenshot">
+
+### Domain & SSL
+<img src="screenshots/domain_ssl.png" width="100%" alt="Domain & SSL Screenshot">
+
+### Backup & Restore
+<img src="screenshots/backup_restore.png" width="100%" alt="Backup & Restore Screenshot">
+
+### Installer
+<img src="screenshots/installer.png" width="100%" alt="Installer Screenshot">
 
 ## 🐛 Bug Reports & Feature Requests
 
@@ -101,4 +107,3 @@ Any unauthorized commercialization or sale of this software will result in an im
 <div align="center">
   <sub>Built with 🕊️🥀 by Zubayr Aly</sub>
 </div>
-
