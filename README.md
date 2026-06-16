@@ -80,11 +80,19 @@ When reporting bugs, please include:
 - Steps to reproduce the issue
 - Screenshots or console logs (if applicable)
 
-## 🛠 Built With
+## 🛠 Built With & Technologies Supported
 
+**The tool is built with:**
 - **Python 3** - Primary language
 - **CustomTkinter** - Complete customized UI toolkit for modern dark mode interfaces
 - **Paramiko** - To handle robust SSH & SFTP connections
+
+**The tool natively manages and generates code for:**
+- **Languages/Frameworks:** Node.js, React, Python, Express.js
+- **Stacks:** MERN Stack (MongoDB/PostgreSQL, Express, React, Node)
+- **Styling/Tooling:** TailwindCSS, Vite, Prisma, Framer Motion
+- **Databases:** PostgreSQL, MongoDB
+- **Infrastructure:** PM2, Caddy Server
 
 ## ❤️ Support the Developer
 
@@ -107,4 +115,3 @@ Any unauthorized commercialization or sale of this software will result in an im
 <div align="center">
   <sub>Built with 🕊️🥀 by Zubayr Aly</sub>
 </div>
-
